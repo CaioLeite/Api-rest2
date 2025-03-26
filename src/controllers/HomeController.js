@@ -1,8 +1,16 @@
-class HomeController {
-  index(req,res){
-    res.status(400).json({tudoCerto:true,
+import Aluno from '../models/Aluno.js';
 
+class HomeController {
+  async index(req,res){
+    const novoAluno = await Aluno.create({
+    nome: 'Maria',
+    sobrenome:'Silva',
+    email:'maria@gmail.com',
+    idade: 70,
+    peso: 50,
+    altura: 1.6,
     });
+    res.json({novoAluno});
   }
 }
 
