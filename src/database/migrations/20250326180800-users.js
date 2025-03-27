@@ -1,13 +1,12 @@
-'use strict';
+// 'use strict';
 
 const { Sequelize } = require('sequelize');
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface) {
-
-    await queryInterface.createTable('alunos', {
-      id:{
+  async up(queryInterface) {
+    await queryInterface.createTable('users', {
+      id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
@@ -19,45 +18,31 @@ module.exports = {
         allowNull: false,
       },
 
-        sobrenome: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-
       email: {
         type: Sequelize.STRING,
         allowNull: false,
+        unique: true,
+
       },
 
-      idade: {
-        type: Sequelize.INTEGER,
+      password_hash: {
+        type: Sequelize.STRING,
         allowNull: false,
       },
-      peso: {
-        type: Sequelize.FLOAT,
-        allowNull: false,
-      },
-      altura: {
-        type: Sequelize.FLOAT,
-        allowNull: false,
-      },
+
       created_at: {
         type: Sequelize.DATE,
-        allowNull:false,
+        allowNull: false,
       },
       updated_at: {
         type: Sequelize.DATE,
-        allowNull:false,
+        allowNull: false,
       },
 
     });
-
   },
 
-  async down (queryInterface) {
-
-
-     await queryInterface.dropTable('alunos');
-
-  }
+  async down(queryInterface) {
+    await queryInterface.dropTable('users');
+  },
 };
