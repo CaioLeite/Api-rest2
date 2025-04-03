@@ -1,8 +1,8 @@
-import app from './app.js';
+import app from './app';
 
-const port = 3001;
+const port = 3001
 app.listen(port, () => {
   console.log();
   console.log(`Escutando na porta ${port}`);
-  console.log(`CRTL + Clique em htpp://localhost:${port}`);
+  console.log(`CTRL + Clique em htpp://localhost:${port}`);
 });
